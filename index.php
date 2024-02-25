@@ -533,7 +533,7 @@
 
                                                             <script>
                                                                 function confirmDelete() {
-                                                                    return confirm('คุณต้องการลบผู้ใช้นี้หรือไม่?');
+                                                                    return confirm('Do you want to delete this user?');
                                                                 }
                                                             </script>
 

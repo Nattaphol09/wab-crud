@@ -15,8 +15,6 @@ fetch('getData.php')
     var Loglabel = Object.keys(data);
     console.log(Loglabel);
 
-    console.log(window);
-    
     var ctx = document.getElementById("myPieChart");
     var myPieChart = new Chart(ctx, {
       type: 'doughnut',
