@@ -7,11 +7,14 @@ $dbname = "admin_dashboard";
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+// ดึงข้อมูลผู้ใช้จากฐานข้อมูลขึ้นมาโดยใช้ค่า id ที่รับเข้ามาผ่านทาง URL ($_GET['id']):
 $id = $_GET['id'];
 $sql = "SELECT * FROM user_data WHERE id= $id";
 $query = $conn->prepare($sql);
 $query->execute();
 $fetch = $query->fetch();
+
+// echo $id;
 
 ?>
 <!DOCTYPE html>
@@ -372,7 +375,7 @@ $fetch = $query->fetch();
 
                     </div>
 
-                    <!-- Content Row -->
+                    <!-- Content Row From-->
                     <form action="save_update.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $fetch['id']; ?>">
                         <div class="row">

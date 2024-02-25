@@ -69,7 +69,8 @@ function countOther($conn)
 }
 
 // สร้าง function ดึงข้อมูลใน user_data มาทำตาราง(Tables)
-function dataTables($conn){
+function dataTables($conn)
+{
     $sql = "SELECT * FROM user_data";
     $query = $conn->prepare($sql);
     $query->execute();
@@ -93,16 +94,12 @@ $sumOther = ($countOther / $countUsers) * 100;
 // สร้างข้อมูลในรูปแบบของ array 
 $data = array(
     // "keys" => values,
-    "Male" => $sumMale,  
+    "Male" => $sumMale,
     "Female" => $sumFemale,
     "Other" => $sumOther,
 );
 
-// กำหนด header เป็น JSON
-// header('Content-Type: application/json');
+
 
 // แปลงข้อมูลในรูปแบบ array เป็น JSON และส่งกลับไปยัง JavaScript
 echo json_encode($data);
-?>
-
-

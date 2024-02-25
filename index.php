@@ -1,4 +1,6 @@
-<!-- <?php include 'getData.php'; ?> -->
+<!-- <?php
+        include 'getData.php';
+        ?>  -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +23,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -513,6 +516,7 @@
                                                 $query->execute();
                                                 $fetch = $query->fetchAll();
 
+
                                                 foreach ($fetch as $user) {
                                                 ?>
                                                     <tr>
@@ -523,7 +527,16 @@
                                                         <td><?php echo $user['gender'] ?></td>
                                                         <td>
                                                             <a href="form_update.php?id=<?php echo $user['id']; ?>"><button class="btn-sm btn-primary m-1">Edit</button></a>
-                                                            <a href="delete_user.php?id=<?php echo $user['id']; ?>"><button class="btn-sm btn-danger m-">Delete</button></a>
+                                                            <a href="delete_user.php?id=<?php echo $user['id']; ?>" onclick="return confirmDelete();">
+                                                                <button class="btn-sm btn-danger m-">Delete</button>
+                                                            </a>
+
+                                                            <script>
+                                                                function confirmDelete() {
+                                                                    return confirm('คุณต้องการลบผู้ใช้นี้หรือไม่?');
+                                                                }
+                                                            </script>
+
                                                         </td>
                                                     </tr>
                                                 <?php
@@ -775,7 +788,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -791,7 +804,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

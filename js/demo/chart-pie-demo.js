@@ -14,6 +14,8 @@ fetch('getData.php')
     console.log(fetchData); // แสดงข้อมูลในคอนโซล
     var Loglabel = Object.keys(data);
     console.log(Loglabel);
+
+    console.log(window);
     
     var ctx = document.getElementById("myPieChart");
     var myPieChart = new Chart(ctx, {

@@ -1,7 +1,7 @@
 <?php
-// Check if the form is submitted
+// ตรวจสอบว่ามีการส่งแบบฟอร์มหรือไม่
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Connect to MySQL database
+    // เชื่อมต่อกับฐานข้อมูล MySQL
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Retrieve data from form
+        // ดึงข้อมูลจากแบบฟอร์ม <from>
         $id = $_POST['id'];
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     id = :id
                 WHERE id = :id";
 
-        // Prepare and execute SQL statement ใช้ bindParam เเทนที่ค่าตัวแปร
+        // Prepare and execute SQL statement ใช้ bindParam นำค่าที่ได้เเทนที่ค่าตัวแปร
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':first_name', $first_name);
@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
 } else {
+    echo "ไม่ได้รับข้อมูลจากฟอร์ม";
     // If the form is not submitted, do nothing or handle the case accordingly
 }
 ?>
