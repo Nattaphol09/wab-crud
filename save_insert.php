@@ -3,8 +3,8 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // เชื่อมต่อกับฐานข้อมูล MySQL
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "nattaphol09";
+    $password = "park1234";
     $dbname = "admin_dashboard";
     $conn = null;
 

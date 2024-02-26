@@ -1,6 +1,6 @@
 <!-- <?php
         include 'getData.php';
-        ?>  -->
+        ?>   -->
 <!DOCTYPE html>
 <html lang="en">
 
